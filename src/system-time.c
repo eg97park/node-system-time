@@ -2,8 +2,7 @@
 #include <node_api.h>
 #include <uv.h>
 
-static napi_value GetCurrentTime(napi_env env, napi_callback_info info) {
-
+static napi_value getTimestamp(napi_env env, napi_callback_info info) {
   uv_timespec64_t tspec;
   int result = uv_clock_gettime(UV_CLOCK_REALTIME, &tspec);
   assert(result == 0);
@@ -20,7 +19,7 @@ static napi_value GetCurrentTime(napi_env env, napi_callback_info info) {
 
 static napi_value Init(napi_env env, napi_value exports) {
   napi_status status;
-  napi_property_descriptor desc = DECLARE_NAPI_METHOD("getCurrentTime", GetCurrentTime);
+  napi_property_descriptor desc = DECLARE_NAPI_METHOD("getTimestamp", getTimestamp);
   status = napi_define_properties(env, exports, 1, &desc);
   assert(status == napi_ok);
   return exports;
