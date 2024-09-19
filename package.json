@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/eg97park/node-system-time/issues"
   },
-  "homepage": "https://github.com/eg97park/node-system-time#readme"
+  "homepage": "https://github.com/eg97park/node-system-time#readme",
+  "dependencies": {
+    "node-addon-api": "^8.1.0"
+  }
 }
